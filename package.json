@@ -4,6 +4,7 @@
   "description": "easy link api",
   "main": "app.js",
   "scripts": {
+    "dev": "NODE_ENV=dev nodemon app/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint app/"
   },
@@ -23,6 +24,7 @@
   },
   "homepage": "https://github.com/collierrgbsitisfise/es-api#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.3"
   },
   "devDependencies": {
