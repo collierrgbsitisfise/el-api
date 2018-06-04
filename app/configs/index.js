@@ -1,4 +1,4 @@
- /*eslint-disable */
+/*eslint-disable */
 const configs = {
   dev: {
     mongoConnectionUrl: "mongoconectionurl DEV"  

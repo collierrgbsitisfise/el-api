@@ -25,7 +25,8 @@
   "homepage": "https://github.com/collierrgbsitisfise/es-api#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "express-promise-router": "^3.0.2"
   },
   "devDependencies": {
     "eslint": "^4.19.1",

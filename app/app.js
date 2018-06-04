@@ -7,6 +7,7 @@ const app = express();
 
 /* Midalwares */
 app.use(bodyParser.json());
+app.use('/api/v1/es-link', require('./routes/easy-links-routes'));
 
 const PORT = process.env.PORT || 5000;
 
