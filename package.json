@@ -1,0 +1,33 @@
+{
+  "name": "el-api",
+  "version": "1.0.0",
+  "description": "easy link api",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint app/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/collierrgbsitisfise/es-api.git"
+  },
+  "keywords": [
+    "easy",
+    "link",
+    "api"
+  ],
+  "author": "Vadim Nicolaev (vadim.vicolaev.v@gmail.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/collierrgbsitisfise/es-api/issues"
+  },
+  "homepage": "https://github.com/collierrgbsitisfise/es-api#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.12.0"
+  }
+}
