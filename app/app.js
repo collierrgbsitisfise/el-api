@@ -10,7 +10,7 @@ const envConfigs = getConfig(process.env.NODE_ENV);
 const app = express();
 
 mongoose.Promise = global.Promise;
-mongoose.connect(envConfigs.mongoURI);
+mongoose.connect(envConfigs.mongoConnectionUrl);
 
 /* Midalwares */
 
