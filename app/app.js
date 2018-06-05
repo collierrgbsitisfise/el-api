@@ -6,7 +6,7 @@ const cors = require('cors');
 
 const getConfig = require('./configs');
 
-const envConfigs = getConfig(process.env.NODE_ENV) 
+const envConfigs = getConfig(process.env.NODE_ENV);
 const app = express();
 
 mongoose.Promise = global.Promise;
