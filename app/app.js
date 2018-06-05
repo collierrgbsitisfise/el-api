@@ -1,12 +1,16 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const cors = require('cors');
 
-
 const getConfig = require('./configs');
 
+const envConfigs = getConfig(process.env.NODE_ENV) 
 const app = express();
+
+mongoose.Promise = global.Promise;
+mongoose.connect(envConfigs.mongoURI);
 
 /* Midalwares */
 
