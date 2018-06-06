@@ -52,3 +52,7 @@ module.exports.getEasyLink = async (req, res) => {
     res.status(500).send(err);
   }
 };
+
+module.exports.redirectEasyLinkByHash = async (req, res) => {
+
+};
