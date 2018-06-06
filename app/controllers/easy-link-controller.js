@@ -1,7 +1,7 @@
 const url = require('url');
 const Link = require('./../models/link.model');
 
-module.exports.getEasyLink = async (req, res) => {
+module.exports.createEasyLink = async (req, res) => {
   try {
     const {
       query,
@@ -30,4 +30,8 @@ module.exports.getEasyLink = async (req, res) => {
   } catch (err) {
     res.status(500).send(err);
   }
+};
+
+module.exports.getEasyLink = async (req, res) => {
+  res.send(req.params.hash);
 };
