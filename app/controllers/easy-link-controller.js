@@ -33,5 +33,22 @@ module.exports.createEasyLink = async (req, res) => {
 };
 
 module.exports.getEasyLink = async (req, res) => {
-  res.send(req.params.hash);
+  try {
+    const {
+      hash,
+    } = req.params;
+
+    const result = await Link.findOne({
+      shortLinkHash: hash,
+    });
+
+    if (!result) {
+      res.status(404).send(`invalid hash: ${hash}`);
+      return;
+    }
+
+    res.send(result);
+  } catch (err) {
+    res.status(500).send(err);
+  }
 };
