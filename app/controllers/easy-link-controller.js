@@ -11,6 +11,16 @@ module.exports.getEasyLink = async (req, res) => {
       link,
     } = query;
 
+    // check if this link was't saved in db already
+    const findLink = await Link.findOne({
+      link,
+    });
+
+    if (findLink) {
+      res.send(findLink);
+      return;
+    }
+
     const shortLink = new Link({
       link,
     });
