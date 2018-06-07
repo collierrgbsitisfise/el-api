@@ -12,6 +12,10 @@ const linkSchema = new SchemaM({
       message: 'Provided link is not valid',
     },
   },
+  isExp: {
+    type: Boolean,
+    default: false,
+  },
   shortLinkHash: {
     type: String,
   },
