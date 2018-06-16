@@ -22,7 +22,9 @@ const linkSchema = new SchemaM({
 });
 
 linkSchema.pre('save', function preSave(next) {
-  this.shortLinkHash = Buffer.from(String(Date.now()) + Math.random()).toString('base64');
+  /*eslint-disable */
+  this.shortLinkHash = this._id;
+  /* eslint-enable */
   next(null);
 });
 
