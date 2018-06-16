@@ -28,6 +28,9 @@ app.use(bodyParser.json());
 
 app.use('/api/v1/es-link', require('./routes/easy-links-routes'));
 
+/* use it only for redirect route */
+app.use('/', require('./routes/special-links-routes'));
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {

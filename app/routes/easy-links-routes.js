@@ -17,4 +17,8 @@ router
   .route('/redirect-es-link/:hash')
   .get(redirectEasyLinkByHash);
 
+router
+  .route('/:hash')
+  .get(redirectEasyLinkByHash);
+
 module.exports = router;
