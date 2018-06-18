@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const cors = require('cors');
-
+const path = require('path');
 const getConfig = require('./configs');
 
 const envConfigs = getConfig(process.env.NODE_ENV);
@@ -13,6 +13,10 @@ mongoose.Promise = global.Promise;
 mongoose.connect(envConfigs.mongoConnectionUrl);
 
 /* Midalwares */
+
+// statics www files
+const wwwPath = path.join(__dirname, 'www');
+app.use('/', express.static(wwwPath));
 
 // CROS ORIGIN REQUEST ALLOW
 app.use(cors());
