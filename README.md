@@ -17,3 +17,7 @@ etc....
 npm i
 npm run <env>
 ```
+
+# Start pm2 using babel interpretor
+
+>**npm run pm2-start**
