@@ -1,5 +1,6 @@
 const url = require('url');
 const Link = require('./../models/link.model');
+const path = require('path');
 
 module.exports.createEasyLink = async (req, res) => {
   try {
@@ -64,7 +65,7 @@ module.exports.redirectEasyLinkByHash = async (req, res) => {
     });
 
     if (!result) {
-      res.status(404).send(`invalid hash: ${hash}`);
+      res.sendFile(path.join(__dirname, './../templates/invalid-hash.html'));
       return;
     }
 

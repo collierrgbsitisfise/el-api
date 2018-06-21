@@ -15,8 +15,8 @@ mongoose.connect(envConfigs.mongoConnectionUrl);
 /* Midalwares */
 
 // statics www files
-const wwwPath = path.join(__dirname, 'www');
-app.use('/', express.static(wwwPath));
+// const wwwPath = path.join(__dirname, 'www');
+// app.use('/', express.static(wwwPath));
 
 // CROS ORIGIN REQUEST ALLOW
 app.use(cors());
