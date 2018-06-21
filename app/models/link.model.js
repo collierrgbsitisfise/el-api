@@ -24,6 +24,7 @@ const linkSchema = new SchemaM({
 
 linkSchema.pre('save', function preSave(next) {
   /*eslint-disable */
+  this.link = this.link.indexOf('//') === -1 ? `http://${this.link}` : this.link;
   this.shortLinkHash = this._id;
   /* eslint-enable */
   next(null);
