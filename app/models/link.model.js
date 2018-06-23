@@ -20,6 +20,10 @@ const linkSchema = new SchemaM({
   shortLinkHash: {
     type: String,
   },
+  privateOnly: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 linkSchema.pre('save', function preSave(next) {
