@@ -38,6 +38,14 @@ module.exports.createEasyLink = async (req, res) => {
 module.exports.getEasyLink = async (req, res) => {
   try {
     const {
+      query,
+    } = url.parse(req.url, true);
+
+    const {
+      ignorePrivate,
+    } = query;
+
+    const {
       hash,
     } = req.params;
 
@@ -50,7 +58,7 @@ module.exports.getEasyLink = async (req, res) => {
       return;
     }
 
-    if (result.privateOnly) {
+    if (result.privateOnly && !ignorePrivate) {
       res.status(404).send('Private Link');
       return;
     }
@@ -73,6 +81,11 @@ module.exports.redirectEasyLinkByHash = async (req, res) => {
 
     if (!result) {
       res.sendFile(path.join(__dirname, './../templates/invalid-hash.html'));
+      return;
+    }
+
+    if (result.privateOnly) {
+      res.sendFile(path.join(__dirname, './../templates/private-link-redirect.html'));
       return;
     }
 
