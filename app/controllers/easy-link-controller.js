@@ -50,6 +50,11 @@ module.exports.getEasyLink = async (req, res) => {
       return;
     }
 
+    if (result.privateOnly) {
+      res.status(404).send('Private Link');
+      return;
+    }
+
     res.send(result);
   } catch (err) {
     res.status(500).send(err);
