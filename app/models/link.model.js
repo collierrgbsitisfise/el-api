@@ -24,6 +24,10 @@ const linkSchema = new SchemaM({
     type: Boolean,
     default: false,
   },
+  onceAvailable: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 linkSchema.pre('save', function preSave(next) {

@@ -11,12 +11,13 @@ module.exports.createEasyLink = async (req, res) => {
     const {
       link,
       privateOnly,
+      onceAvailable,
     } = query;
-
     // check if this link was't saved in db already
     const findLink = await Link.findOne({
       link,
       privateOnly,
+      onceAvailable,
     });
 
     if (findLink) {
@@ -27,6 +28,7 @@ module.exports.createEasyLink = async (req, res) => {
     const shortLink = new Link({
       link,
       privateOnly,
+      onceAvailable,
     });
 
     const result = await shortLink.save();
@@ -64,6 +66,14 @@ module.exports.getEasyLink = async (req, res) => {
       return;
     }
 
+    if (result.onceAvailable) {
+      await Link.remove({
+        /*eslint-disable */
+        _id: result._id,
+        /* eslint-enable */
+      }).exec();
+    }
+
     res.send(result);
   } catch (err) {
     res.status(500).send(err);
@@ -88,6 +98,14 @@ module.exports.redirectEasyLinkByHash = async (req, res) => {
     if (result.privateOnly) {
       res.sendFile(path.join(__dirname, './../templates/private-link-redirect.html'));
       return;
+    }
+
+    if (result.onceAvailable) {
+      await Link.remove({
+        /*eslint-disable */
+        _id: result._id,
+        /* eslint-enable */
+      }).exec();
     }
 
     res.redirect(301, result.link);
