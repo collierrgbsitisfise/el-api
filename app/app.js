@@ -18,6 +18,10 @@ mongoose.connect(envConfigs.mongoConnectionUrl);
 const wwwPath = path.join(__dirname, 'www');
 app.use('/', express.static(wwwPath));
 
+const landing = path.join(__dirname, 'glint');
+app.use('/landing', express.static(landing));
+
+
 // CROS ORIGIN REQUEST ALLOW
 app.use(cors());
 app.options('*', cors());
