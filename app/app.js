@@ -15,12 +15,10 @@ mongoose.connect(envConfigs.mongoConnectionUrl);
 /* Midalwares */
 
 // statics www files
-const wwwPath = path.join(__dirname, 'www');
-app.use('/', express.static(wwwPath));
-
-const landing = path.join(__dirname, 'glint');
-app.use('/landing', express.static(landing));
-
+app.use(express.static(path.join(__dirname, 'www')));
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'www', 'index.html'));
+});
 
 // CROS ORIGIN REQUEST ALLOW
 app.use(cors());
