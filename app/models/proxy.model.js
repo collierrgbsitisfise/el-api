@@ -21,6 +21,6 @@ const proxySchema = new SchemaM({
   },
 });
 
-const Proxy = mongoose.model('story', proxySchema);
+const Proxy = mongoose.model('proxy', proxySchema);
 
 module.exports = Proxy;
