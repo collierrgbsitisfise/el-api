@@ -33,6 +33,8 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 
 app.use('/api/v1/es-link', require('./routes/easy-links-routes'));
+app.use('/api/v1/proxy', require('./routes/proxy-routes'));
+
 
 /* use it only for redirect route */
 app.use('/', require('./routes/special-links-routes'));
